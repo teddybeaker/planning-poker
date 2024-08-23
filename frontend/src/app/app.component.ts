@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {PlanningPokerService} from "./services/planning-poker.service";
+import {Observable} from "rxjs";
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  imports: [
+    AsyncPipe
+  ],
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'frontend';
+
+  backendData$: Observable<string>;
+
+  constructor(private service: PlanningPokerService) {
+    this.backendData$ = this.service.getData(); // TODO Figure out why I can't declare it above
+  }
+
 }

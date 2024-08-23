@@ -21,3 +21,20 @@ nestjs app, see its [README](./backend/README.md)
 
 ## frontend
 angular app, see its [README](./frontend/README.md)
+
+### ideas for Easter eggs
+n+b: color
+m: repdigit
+n: chatbot
+l: cat
+m: audio (sport)
+l: submarine
+e: ?
+k: ?
+l: ?
+r: ?
+
+## TODOs
+- replace karma with jest
+- replace favicon
+- add linting
