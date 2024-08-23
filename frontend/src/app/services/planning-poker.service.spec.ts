@@ -2,7 +2,8 @@ import { PlanningPokerService } from './planning-poker.service';
 import {of} from 'rxjs';
 
 describe('PlanningPokerService', () => {
-  let httpClientSpy:any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let httpClientSpy: any;
   let service: PlanningPokerService;
 
   beforeEach(() => {

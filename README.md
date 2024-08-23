@@ -36,4 +36,4 @@ r: ?
 
 ## TODOs
 - replace favicon
-- add linting
+- add prettier

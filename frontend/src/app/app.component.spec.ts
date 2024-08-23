@@ -4,6 +4,7 @@ import {PlanningPokerService} from "./services/planning-poker.service";
 import {of} from "rxjs";
 
 describe('AppComponent', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let serviceSpy: any;
   beforeEach(async () => {
     const spy = {getData: jest.fn()};
