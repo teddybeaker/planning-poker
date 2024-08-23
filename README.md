@@ -18,3 +18,6 @@ Must be one of the following:
 
 ## backend
 nestjs app, see its [README](./backend/README.md)
+
+## frontend
+angular app, see its [README](./frontend/README.md)
