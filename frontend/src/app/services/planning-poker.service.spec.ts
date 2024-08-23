@@ -1,13 +1,12 @@
 import { PlanningPokerService } from './planning-poker.service';
-import {HttpClient} from "@angular/common/http";
-import {of} from "rxjs";
+import {of} from 'rxjs';
 
 describe('PlanningPokerService', () => {
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let httpClientSpy:any;
   let service: PlanningPokerService;
 
   beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    httpClientSpy = {get: jest.fn()};
     service = new PlanningPokerService(httpClientSpy);
   });
 
@@ -15,10 +14,10 @@ describe('PlanningPokerService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return server response', (done: DoneFn) => {
+  it('should return server response', (done) => {
     // given
     const backendResponse = 'backendResponse';
-    httpClientSpy.get.and.returnValue(of(backendResponse));
+    httpClientSpy.get.mockReturnValue(of(backendResponse));
 
     // when
     service.getData().subscribe({
@@ -31,6 +30,6 @@ describe('PlanningPokerService', () => {
     });
 
     // then
-    expect(httpClientSpy.get.calls.count()).toBe(1);
+    expect(httpClientSpy.get).toHaveBeenCalledTimes(1);
   });
 });

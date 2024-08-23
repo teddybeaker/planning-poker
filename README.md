@@ -35,6 +35,5 @@ l: ?
 r: ?
 
 ## TODOs
-- replace karma with jest
 - replace favicon
 - add linting

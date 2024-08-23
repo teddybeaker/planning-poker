@@ -4,14 +4,14 @@ import {PlanningPokerService} from "./services/planning-poker.service";
 import {of} from "rxjs";
 
 describe('AppComponent', () => {
-  let serviceSpy: jasmine.SpyObj<PlanningPokerService>;
+  let serviceSpy: any;
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('PlanningPokerService', ['getData']);
+    const spy = {getData: jest.fn()};
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [{provide: PlanningPokerService, useValue: spy}],
     }).compileComponents();
-    serviceSpy = TestBed.inject(PlanningPokerService) as jasmine.SpyObj<PlanningPokerService>;
+    serviceSpy = TestBed.inject(PlanningPokerService);
   });
 
   it('should create the app', () => {
@@ -23,14 +23,14 @@ describe('AppComponent', () => {
   it('should render backend data', () => {
     // given
     const backendResponse = 'something';
-    serviceSpy.getData.and.returnValue(of(backendResponse));
+    serviceSpy.getData.mockReturnValue(of(backendResponse));
     const fixture = TestBed.createComponent(AppComponent);
 
     // when
     fixture.detectChanges();
 
     // then
-    expect(serviceSpy.getData.calls.count()).toBe(1);
+    expect(serviceSpy.getData).toHaveBeenCalledTimes(1);
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain(backendResponse);
   });
