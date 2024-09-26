@@ -27,12 +27,13 @@ n+b: color
 m: repdigit
 n: chatbot
 l: cat
-m: audio (sport)
+h: scramble or spellcheck names?
+m: force-vote (only once per session)
 l: submarine
-e: ?
-k: ?
+e: display cards as mobile phones
+k: snake
 l: ?
-r: ?
+r: add emojis to names
 
 ## TODOs
 - replace favicon
